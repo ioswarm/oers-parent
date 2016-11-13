@@ -11,4 +11,47 @@
 	
 	<name>OERS Parent pom</name>
 	
+	<properties>
+	    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+	
+	    <!-- Compiler plugin -->
+	    <maven.compiler.source>1.8</maven.compiler.source>
+	    <maven.compiler.target>1.8</maven.compiler.target>
+	    
+	    <maven.compiler.plugin.version>3.1</maven.compiler.plugin.version>
+	    <maven.bundle.plugin.version>3.2.0</maven.bundle.plugin.version>
+	    <bnd.pojo.plugin.version>1.12.1</bnd.pojo.plugin.version>
+	</properties>
+	
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compile-plugin</artifactId>
+					<version>${maven.compiler.plugin.version}</version>
+					<configuration>
+						<optimize>true</optimize>
+					</configuration>
+				</plugin>
+				
+				<plugin>
+					<groupId>org.apache.felix</groupId>
+					<artifactId>maven-bundle-plugin</artifactId>
+					<version>${maven.bundle.plugin.version}</version>
+					<extensions>true</extensions>
+					
+					<dependencies>
+						<dependency>
+							<groupId>org.apache.felix</groupId>
+							<artifactId>bnd-ipojo-plugin</artifactId>
+							<version>${bnd.pojo.plugin.version}</version>
+						</dependency>
+					</dependencies>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+	
 </project>
